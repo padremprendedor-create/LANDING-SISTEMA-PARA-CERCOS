@@ -1,7 +1,14 @@
 /* ============================================
    LANDING CERCOS PERIMÉTRICOS - JAVASCRIPT
    ============================================ */
-console.log('📜 script.js v3.2 Muted Autoplay Fix LOADED at', new Date().toLocaleTimeString());
+console.log('📜 script.js v3.3 Debugging Fixes LOADED at', new Date().toLocaleTimeString());
+
+/* === Mobile Error Logging (Temporary) === */
+window.onerror = function (msg, url, line) {
+    console.error('Mobile JS Error:', msg, 'at', line);
+    // Uncomment for aggressive debugging if needed:
+    // alert('Error: ' + msg); 
+};
 
 /* === Supabase Configuration === */
 const SUPABASE_URL = 'https://gnigvzyzwqhukgabwpey.supabase.co';
@@ -72,7 +79,11 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollAnimations();
     initPhoneAnimation();
     initQualificationModal();
-    initVideoFacade();
+    try {
+        initVideoFacade();
+    } catch (e) {
+        console.error('Error initializing video facade:', e);
+    }
 });
 
 /* === Smooth Scroll para CTAs === */

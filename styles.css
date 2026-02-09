@@ -1684,11 +1684,11 @@ h6 {
 
 /* === Mobile Video Fixes === */
 @media (max-width: 767px) {
-    .loom-embed {
+    .loom-embed-wrapper {
         min-height: 200px;
     }
 
-    .loom-embed iframe {
+    .loom-iframe-container iframe {
         min-height: 200px;
     }
 
