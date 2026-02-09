@@ -1,7 +1,7 @@
 /* ============================================
    LANDING CERCOS PERIMÉTRICOS - JAVASCRIPT
    ============================================ */
-console.log('📜 script.js v2.0 Mobile Fixes LOADED at', new Date().toLocaleTimeString());
+console.log('📜 script.js v3.0 Facade Video Fix LOADED at', new Date().toLocaleTimeString());
 
 /* === Supabase Configuration === */
 const SUPABASE_URL = 'https://gnigvzyzwqhukgabwpey.supabase.co';
@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollAnimations();
     initPhoneAnimation();
     initQualificationModal();
+    initVideoFacade();
 });
 
 /* === Smooth Scroll para CTAs === */
@@ -208,8 +209,7 @@ function initQualificationModal() {
         });
     });
 
-    // Close modal
-    closeBtn?.addEventListener('click', closeModal);
+
     document.getElementById('close-disqualified')?.addEventListener('click', closeModal);
     document.getElementById('finish-qualification')?.addEventListener('click', closeModal);
 
@@ -605,4 +605,34 @@ function throttle(func, limit) {
             setTimeout(() => inThrottle = false, limit);
         }
     };
+}
+
+/* === Loom Video Facade === */
+function initVideoFacade() {
+    console.log('🎬 Initializing Video Facade...');
+    const facade = document.getElementById('video-facade');
+    const container = document.getElementById('video-frame-container');
+
+    if (!facade || !container) {
+        console.warn('⚠️ Video facade elements not found');
+        return;
+    }
+
+    facade.addEventListener('click', function () {
+        console.log('▶️ Playing video...');
+
+        // Hide facade
+        facade.style.display = 'none';
+        container.style.display = 'block';
+
+        // Inject Iframe with Autoplay
+        container.innerHTML = `
+            <iframe
+                src="https://www.loom.com/embed/1733d5e4018742f784cab8aaa767a48a?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&autoplay=1"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen webkitallowfullscreen mozallowfullscreen>
+            </iframe>
+        `;
+    });
 }
