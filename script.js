@@ -8,10 +8,10 @@ const SUPABASE_URL = 'https://gnigvzyzwqhukgabwpey.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImduaWd2enl6d3FodWtnYWJ3cGV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA1OTE1MDMsImV4cCI6MjA4NjE2NzUwM30.PmGLT7X60VOdRxz0sqG1NJsrQ2PkBb0HiRZZuYP1K4A';
 
 // Initialize Supabase client (with error handling)
-let supabase = null;
+let supabaseClient = null;
 try {
     if (window.supabase && typeof window.supabase.createClient === 'function') {
-        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         console.log('✅ Supabase initialized successfully');
     } else {
         console.warn('⚠️ Supabase SDK not loaded, database features will be disabled');
@@ -23,13 +23,13 @@ try {
 /* === Save Lead to Supabase === */
 async function saveLeadToSupabase(formData) {
     // Check if Supabase is available
-    if (!supabase) {
+    if (!supabaseClient) {
         console.warn('⚠️ Supabase not available, skipping database save');
         return { success: false, error: 'Supabase not initialized' };
     }
 
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('leads')
             .insert([{
                 nombre: formData.nombre,
