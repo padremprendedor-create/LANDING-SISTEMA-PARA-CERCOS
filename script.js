@@ -1,7 +1,7 @@
 /* ============================================
    LANDING CERCOS PERIMÉTRICOS - JAVASCRIPT
    ============================================ */
-console.log('📜 script.js v3.1 Video Loading Fix LOADED at', new Date().toLocaleTimeString());
+console.log('📜 script.js v3.2 Muted Autoplay Fix LOADED at', new Date().toLocaleTimeString());
 
 /* === Supabase Configuration === */
 const SUPABASE_URL = 'https://gnigvzyzwqhukgabwpey.supabase.co';
@@ -625,10 +625,10 @@ function initVideoFacade() {
         facade.style.display = 'none';
         container.style.display = 'block';
 
-        // Inject Iframe (Simplified URL)
+        // Inject Iframe (Autoplay Muted for Mobile Compatibility)
         container.innerHTML = `
             <iframe
-                src="https://www.loom.com/embed/1733d5e4018742f784cab8aaa767a48a"
+                src="https://www.loom.com/embed/1733d5e4018742f784cab8aaa767a48a?autoplay=1&muted=1&playsinline=1"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen webkitallowfullscreen mozallowfullscreen>
