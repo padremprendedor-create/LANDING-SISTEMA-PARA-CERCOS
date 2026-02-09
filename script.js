@@ -1,7 +1,7 @@
 /* ============================================
    LANDING CERCOS PERIMÉTRICOS - JAVASCRIPT
    ============================================ */
-console.log('📜 script.js v3.3 Debugging Fixes LOADED at', new Date().toLocaleTimeString());
+console.log('📜 script.js v3.4 Manual Play Strategy LOADED at', new Date().toLocaleTimeString());
 
 /* === Mobile Error Logging (Temporary) === */
 window.onerror = function (msg, url, line) {
@@ -619,6 +619,7 @@ function throttle(func, limit) {
 }
 
 /* === Loom Video Facade === */
+/* === Loom Video Facade === */
 function initVideoFacade() {
     console.log('🎬 Initializing Video Facade...');
     const facade = document.getElementById('video-facade');
@@ -630,20 +631,29 @@ function initVideoFacade() {
     }
 
     facade.addEventListener('click', function () {
-        console.log('▶️ Playing video...');
+        console.log('▶️ Loading video player...');
 
-        // Hide facade
-        facade.style.display = 'none';
-        container.style.display = 'block';
+        // Show loading state
+        facade.innerHTML = '<div style="color:white; text-align:center;"><p>Cargando reproductor...</p></div>';
 
-        // Inject Iframe (Autoplay Muted for Mobile Compatibility)
-        container.innerHTML = `
-            <iframe
-                src="https://www.loom.com/embed/1733d5e4018742f784cab8aaa767a48a?autoplay=1&muted=1&playsinline=1"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen webkitallowfullscreen mozallowfullscreen>
-            </iframe>
-        `;
+        // Create Iframe element programmatically
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://www.loom.com/embed/1733d5e4018742f784cab8aaa767a48a"; // No autoplay parameters
+        iframe.frameBorder = "0";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+
+        // Handle Load Event
+        iframe.onload = function () {
+            console.log('✅ Video player loaded');
+            facade.style.display = 'none';
+            container.style.display = 'block';
+        };
+
+        // Inject
+        container.innerHTML = '';
+        container.appendChild(iframe);
     });
 }
