@@ -1,6 +1,7 @@
 /* ============================================
    LANDING CERCOS PERIMÉTRICOS - JAVASCRIPT
    ============================================ */
+console.log('📜 script.js LOADED at', new Date().toLocaleTimeString());
 
 /* === Supabase Configuration === */
 const SUPABASE_URL = 'https://gnigvzyzwqhukgabwpey.supabase.co';
@@ -65,6 +66,7 @@ async function saveLeadToSupabase(formData) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('📄 DOMContentLoaded fired!');
     // Initialize all functionality
     initSmoothScroll();
     initScrollAnimations();
