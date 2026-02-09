@@ -1,7 +1,7 @@
 /* ============================================
    LANDING CERCOS PERIMÉTRICOS - JAVASCRIPT
    ============================================ */
-console.log('📜 script.js v3.4 Manual Play Strategy LOADED at', new Date().toLocaleTimeString());
+console.log('📜 script.js v3.5 Z-Index Loading Fix LOADED at', new Date().toLocaleTimeString());
 
 /* === Mobile Error Logging (Temporary) === */
 window.onerror = function (msg, url, line) {
@@ -619,7 +619,6 @@ function throttle(func, limit) {
 }
 
 /* === Loom Video Facade === */
-/* === Loom Video Facade === */
 function initVideoFacade() {
     console.log('🎬 Initializing Video Facade...');
     const facade = document.getElementById('video-facade');
@@ -634,7 +633,12 @@ function initVideoFacade() {
         console.log('▶️ Loading video player...');
 
         // Show loading state
-        facade.innerHTML = '<div style="color:white; text-align:center;"><p>Cargando reproductor...</p></div>';
+        facade.innerHTML = '<div style="color:white; text-align:center; padding-top:20%;"><p>Cargando reproductor...</p></div>';
+
+        // Prepare container: Show it, but put it BEHIND facade
+        // This ensures the iframe loads (because it is displayed) but user still sees the "Loading..." facade
+        container.style.display = 'block';
+        container.style.zIndex = '1';
 
         // Create Iframe element programmatically
         const iframe = document.createElement('iframe');
@@ -648,8 +652,9 @@ function initVideoFacade() {
         // Handle Load Event
         iframe.onload = function () {
             console.log('✅ Video player loaded');
+            // Bring to front and hide facade
+            container.style.zIndex = '20';
             facade.style.display = 'none';
-            container.style.display = 'block';
         };
 
         // Inject
