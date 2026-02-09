@@ -170,6 +170,8 @@ function initPhoneAnimation() {
    QUALIFICATION MODAL
    ============================================ */
 function initQualificationModal() {
+    console.log('🔍 Initializing qualification modal...');
+
     const modal = document.getElementById('qualification-modal');
     const openBtn = document.getElementById('open-qualification-modal');
     const closeBtn = modal?.querySelector('.modal-close');
@@ -180,7 +182,15 @@ function initQualificationModal() {
     const progressFill = document.getElementById('progress-fill');
     const currentStepSpan = document.getElementById('current-step');
 
-    if (!modal || !openBtn) return;
+    console.log('🔍 Modal found:', !!modal);
+    console.log('🔍 Open button found:', !!openBtn);
+
+    if (!modal || !openBtn) {
+        console.error('❌ Modal or open button not found! Modal:', modal, 'Button:', openBtn);
+        return;
+    }
+
+    console.log('✅ Modal and button found, attaching event listeners...');
 
     const TOTAL_STEPS = 7;
     let currentStep = 1;
@@ -223,6 +233,7 @@ function initQualificationModal() {
     form?.addEventListener('submit', handleFormSubmit);
 
     function openModal() {
+        console.log('🚀 Opening modal...');
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
