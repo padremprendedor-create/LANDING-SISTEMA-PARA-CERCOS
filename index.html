@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="description"
         content="Sistema de IA que filtra, cotiza y agenda visitas técnicas por WhatsApp 24/7 para empresas de cercos perimétricos en Perú.">
     <title>Sistema de Ventas Automático para Empresas de Cercos | IA + WhatsApp</title>
@@ -17,6 +17,17 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Prevent Zoom on Mobile -->
+    <script>
+        document.addEventListener('touchmove', function (event) {
+            if (event.scale !== 1) { event.preventDefault(); }
+        }, { passive: false });
+
+        document.addEventListener('gesturestart', function (event) {
+            event.preventDefault();
+        });
+    </script>
 </head>
 
 <body>
@@ -146,7 +157,7 @@
                 <div class="loom-embed">
                     <iframe
                         src="https://www.loom.com/embed/1733d5e4018742f784cab8aaa767a48a?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
-                        frameborder="0" loading="lazy"
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen webkitallowfullscreen mozallowfullscreen>
                     </iframe>

@@ -1,7 +1,7 @@
 /* ============================================
    LANDING CERCOS PERIMÉTRICOS - JAVASCRIPT
    ============================================ */
-console.log('📜 script.js LOADED at', new Date().toLocaleTimeString());
+console.log('📜 script.js v2.0 Mobile Fixes LOADED at', new Date().toLocaleTimeString());
 
 /* === Supabase Configuration === */
 const SUPABASE_URL = 'https://gnigvzyzwqhukgabwpey.supabase.co';
