@@ -1619,3 +1619,18 @@ h6 {
         margin-top: var(--space-sm);
     }
 }
+
+/* === Mobile Video Fixes === */
+@media (max-width: 767px) {
+    .loom-embed {
+        min-height: 200px;
+    }
+
+    .loom-embed iframe {
+        min-height: 200px;
+    }
+
+    .video-container {
+        padding: 0 var(--space-xs);
+    }
+}
