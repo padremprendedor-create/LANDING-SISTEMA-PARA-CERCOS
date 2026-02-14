@@ -344,6 +344,8 @@ h6 {
     margin-bottom: var(--space-xs);
     font-size: 0.875rem;
     max-width: 85%;
+    word-break: break-word;
+    /* Prevent long text overflow */
     animation: bubbleIn 0.4s ease backwards;
 }
 
@@ -557,8 +559,8 @@ h6 {
 
 .phone-mockup {
     position: relative;
-    width: 320px;
-    /* Wider phone */
+    width: 360px;
+    /* Wider phone for better content fit */
     height: 560px;
     margin-top: -20px;
     /* Pull phone up to touch logo */
