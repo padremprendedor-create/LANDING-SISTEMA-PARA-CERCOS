@@ -83,6 +83,12 @@ body {
     touch-action: manipulation;
 }
 
+/* Specific section light mode override */
+.hero {
+    background-color: var(--color-white) !important;
+    color: var(--color-primary) !important;
+}
+
 /* === Contenedor === */
 .container {
     width: 100%;
@@ -202,23 +208,51 @@ h6 {
     align-items: center;
     padding: var(--space-3xl) 0;
     overflow: hidden;
+    background-color: var(--color-white);
 }
 
 .hero .container {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-xl);
     align-items: center;
+    max-width: 900px;
 }
 
+/* Removing side-by-side layout to keep everything centered as requested */
 @media (min-width: 1024px) {
     .hero .container {
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns: 1fr;
     }
 }
 
 .hero-content {
     z-index: 2;
+    text-align: center;
+    /* Center text and inline elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+    max-width: 220px;
+    height: auto;
+    margin-bottom: var(--space-xl);
+    animation: logoEntrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .logo {
@@ -244,15 +278,16 @@ h6 {
     font-size: clamp(1.75rem, 5vw, 3rem);
     font-weight: 800;
     margin-bottom: var(--space-md);
-    animation: fadeInUp 0.6s ease 0.1s backwards;
+    color: var(--color-primary);
+    animation: fadeInUp 0.6s ease 0.3s backwards;
 }
 
 .hero-subtitle {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 400;
-    color: var(--color-gray-300);
+    color: var(--color-gray-600);
     margin-bottom: var(--space-lg);
-    animation: fadeInUp 0.6s ease 0.2s backwards;
+    animation: fadeInUp 0.6s ease 0.4s backwards;
 }
 
 .hero-subtitle strong {
@@ -271,6 +306,7 @@ h6 {
     gap: var(--space-sm);
     padding: var(--space-xs) 0;
     font-size: 1rem;
+    color: var(--color-gray-700);
 }
 
 .bullet-icon {
@@ -288,6 +324,8 @@ h6 {
 @media (min-width: 1024px) {
     .hero-visual {
         display: flex;
+        width: 100%;
+        max-width: 400px;
     }
 }
 
