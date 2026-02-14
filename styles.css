@@ -542,8 +542,8 @@ h6 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-xs);
-    /* Tighter gap */
+    gap: 0;
+    /* Removed gap completely */
 }
 
 .logo {
@@ -559,8 +559,8 @@ h6 {
     position: relative;
     width: 280px;
     height: 560px;
-    margin-top: 0;
-    /* Removed large margin to bring closer to logo */
+    margin-top: -20px;
+    /* Pull phone up to touch logo */
     /* Push phone lower */
     background: var(--color-primary);
     border-radius: 40px;
