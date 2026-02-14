@@ -557,7 +557,8 @@ h6 {
 
 .phone-mockup {
     position: relative;
-    width: 280px;
+    width: 320px;
+    /* Wider phone */
     height: 560px;
     margin-top: -20px;
     /* Pull phone up to touch logo */
