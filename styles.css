@@ -5,11 +5,12 @@
 /* === Variables y Reset === */
 :root {
     /* Colores principales */
-    --color-primary: #0A1628;
-    --color-primary-dark: #050B14;
-    --color-secondary: #F7B500;
-    --color-secondary-light: #FFD54F;
+    --color-primary: #083556;
+    --color-primary-dark: #05233A;
+    --color-secondary: #04A468;
+    --color-secondary-light: #06D688;
     --color-accent: #00C853;
+    /* Keeping existing green as accent for now, or could act as a tertiary */
 
     /* Grises y neutros */
     --color-white: #FFFFFF;
@@ -23,9 +24,9 @@
     --color-gray-800: #1E293B;
 
     /* Gradientes */
-    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #1a2d4a 100%);
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, #051b2e 100%);
     --gradient-secondary: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
-    --gradient-glow: radial-gradient(circle at center, rgba(247, 181, 0, 0.15) 0%, transparent 70%);
+    --gradient-glow: radial-gradient(circle at center, rgba(4, 164, 104, 0.15) 0%, transparent 70%);
 
     /* Tipografía */
     --font-display: 'Outfit', sans-serif;
@@ -49,7 +50,7 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
-    --shadow-glow: 0 0 40px rgba(247, 181, 0, 0.3);
+    --shadow-glow: 0 0 40px rgba(4, 164, 104, 0.3);
 
     /* Transiciones */
     --transition-fast: 0.2s ease;
@@ -218,6 +219,13 @@ h6 {
 
 .hero-content {
     z-index: 2;
+}
+
+.logo {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: var(--space-md);
 }
 
 .badge {
